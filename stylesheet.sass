@@ -1,0 +1,125 @@
+// Setting default Values
+*
+  margin: 0
+  padding: 0
+  font-size: 18px
+  font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif
+  text-align: center
+  color: #777
+
+// Body Section
+body
+  display: grid
+  background-color: #777
+  grid-column: 1fr 960px 1fr
+  grid-template: ". grid ."
+  height: 100vh
+  padding: 10px
+
+// Grid Section
+.grid
+    display: grid
+    margin-top: 30px
+    grid-template-columns: 1fr 495px 495px 1fr
+    grid-template-rows: 1fr 1fr 1fr 1fr
+    grid-gap: 10px
+    grid-template-areas: ". header header ." ". nav nav. " ". section aside ." ". footer footer ."
+    grid-area: grid
+    height: 80%
+
+    //Header Row
+    .header
+      grid-area: header
+      background-color: #ebebeb
+      position: relative
+      p
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+    //Nav Row
+    .nav
+      grid-area: nav
+      background-color: #ebebeb
+      display: flex
+      justify-content: center
+      align-items: center
+
+    // Left Section with 2 rows
+    .section
+      display: grid
+      grid-area: section
+      background-color: #ebebeb
+      grid-template-columns: 1fr 410px 1fr
+      grid-template-rows: 1fr 1fr
+      grid-template-areas: "section_text section_text section_text" ". article ."
+      //First row
+      .section_text
+        grid-area: section_text
+        display: flex
+        justify-content: center
+        align-items: center
+      //Second row with 3 nested rows
+      .article
+        display: grid
+        grid-area: article
+        background-color: #777
+        grid-template-columns: 1fr 360px 1fr
+        grid-template-rows: 40px 40px 40px
+        grid-template-areas: "text0 text0 text0" ". text1 ." ". text2 ."
+        margin-bottom: 10px
+        //First nested row
+        .text0
+          grid-area: text0
+          color:#ebebeb
+          display: flex
+          justify-content: center
+          align-items: center
+        //Second nested row
+        .text1
+          grid-area: text1
+          background-color: #ebebeb
+          height: 80%
+          font-weight: bold
+        //Third nested row
+        .text2
+          grid-area: text2
+          background-color: #ebebeb
+          height: 80%
+          margin-bottom: 20px
+    //Right side bar with 2 rows
+    .aside
+      grid-area: aside
+      display: grid
+      background-color: #ebebeb
+      grid-column: 1fr
+      grid-template-rows: 1fr 1fr
+      grid-template-areas: "aside_text"
+      //First row
+      .aside_text
+        grid-area: aside_text
+        display: flex
+        justify-content: center
+        align-items: center
+
+    // Footer row
+    .footer
+      grid-area: footer
+      background-color: #ebebeb
+      display: flex
+      justify-content: center
+      align-items: center
+
+//For Mobile View
+@media only screen and (max-width: 768px)
+  .grid
+      display: grid
+      margin-top: 30px
+      grid-template-columns: 1fr
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr
+      grid-gap: 10px
+      grid-template-areas: "header" "nav" "section" "aside" "footer"
+      grid-area: grid
+      height: 80%
+      margin-bottom: 30px
