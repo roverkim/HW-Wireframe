@@ -68,7 +68,11 @@ body {
         grid-area: text1;
         background-color: #ebebeb;
         height: 80%;
-        font-weight: bold; }
+        font-weight: bold;
+        display: grid; }
+        .grid .section .article .text1 p {
+          justify-self: center;
+          align-self: center; }
       .grid .section .article .text2 {
         grid-area: text2;
         background-color: #ebebeb;
